@@ -6,7 +6,12 @@
  const cookieParser = require("cookie-parser")
  const {db} = require('../db')
  const syncSql = require('sync-sql')
-const config = require('../Config')
+const config = {
+    host: 'localhost',
+    user: 'root',
+    password: 'rootroot',
+    database: 'satolution'
+}
 router.use(cookieParser())
 router.use(cors({
     origin: "http://localhost:5500",
