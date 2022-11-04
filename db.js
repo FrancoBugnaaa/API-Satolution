@@ -1,7 +1,7 @@
-const {localDatabase, database} = require.main.require('./config.js')
+const config = require.main.require('./Config')
 const mysql = require('mysql')
 const syncSql = require('sync-sql')
-const db = mysql.createConnection(database) 
+const db = mysql.createConnection(config) 
 
 db.connect((err) => {
     if (err) {
@@ -20,4 +20,3 @@ db.connect((err) => {
 })
 
 module.exports = {db, syncSql}
-Footer
