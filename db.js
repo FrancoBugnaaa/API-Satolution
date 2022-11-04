@@ -1,14 +1,15 @@
 const mysql = require('mysql')
 const syncSql = require('sync-sql')
+require("dotenv").config()
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'rootroot',
-    database: 'satolution'
+    host: process.env.MYSQLHOST,
+    user: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQLDATABASE
 }) 
 
 db.connect((err) => {
-    if (err) {
+        if (err) {
         if (err.code === "PROTOCOL_CONNECTION_LOST") {
             console.error("Database connection was closed.");
         }
