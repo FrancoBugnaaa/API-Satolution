@@ -2,30 +2,13 @@
  const cors = require("cors")
  const {Router} = require('express');
  const router = Router();
- const mysql = require('mysql')
  const jwt = require("jsonwebtoken");
  const cookieParser = require("cookie-parser")
- const express = require("express");
- const app = express();
- const bcrypt = require("bcrypt");
- const db = mysql.createConnection({
-     host: "localhost",
-     user: "root",
-     password: "rootroot",
-     database: "Satolution"
- }) 
+ const {db} = require('../db')
  const syncSql = require('sync-sql')
- var config = {
-     host : "localhost",
-     user: "root",
-     password : "rootroot",
-     database : "Satolution"
- }
- db.connect((err) => {
-     if (err) throw (err)
- })
+const config = require('../Config')
 router.use(cookieParser())
- router.use(cors({
+router.use(cors({
     origin: "http://localhost:5500",
     methods: ['POST', 'PUT', 'GET', 'DELETE', 'OPTIONS', 'HEAD'],
     credentials: true,
