@@ -1,7 +1,11 @@
-const config = require.main.require('./Config')
 const mysql = require('mysql')
 const syncSql = require('sync-sql')
-const db = mysql.createConnection(config) 
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'rootroot',
+    database: 'satolution'
+}) 
 
 db.connect((err) => {
     if (err) {
